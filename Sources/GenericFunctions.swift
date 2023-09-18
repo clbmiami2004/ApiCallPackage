@@ -8,15 +8,6 @@
 import Foundation
 import UIKit
 
-public class GenericFunctions: UIViewController {
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-}
 
 public class webServices {
     
@@ -34,7 +25,7 @@ public class webServices {
             return
         }
         
-        let task = self.dataTask(with: url) { data, response, error in
+        public let task = self.dataTask(with: url) { data, response, error in
             guard let data = data,
                   (response as? HTTPURLResponse)?.statusCode == 200 else {
                 if let error = error {
