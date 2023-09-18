@@ -6,26 +6,22 @@
 //
 
 import Foundation
-import UIKit
 
-
-public class webServices {
+public extension URLSession {
     
     enum CustomError: Error {
         case invalidUrl
         case invalidData
     }
     
-    public init() { }
-    
-    public func request<T: Codable>(url: URL?, expecting: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Codable>(url: URL?, expecting: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
         guard let url = url else {
             completion(.failure(CustomError.invalidUrl))
             return
         }
         
-        public let task = self.dataTask(with: url) { data, response, error in
+        let task = self.dataTask(with: url) { data, response, error in
             guard let data = data,
                   (response as? HTTPURLResponse)?.statusCode == 200 else {
                 if let error = error {
