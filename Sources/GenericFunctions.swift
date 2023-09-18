@@ -18,7 +18,7 @@ public class GenericFunctions: UIViewController {
     
 }
 
-public extension URLSession {
+public class webServices {
     
     enum CustomError: Error {
         case invalidUrl
